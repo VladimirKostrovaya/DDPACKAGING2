@@ -1,0 +1,1361 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="DD Packaging — профессиональная упаковка для чая, кофе, косметики, алкоголя и других продуктов. Современные технологии, индивидуальный подход, высокое качество." />
+  <title>DD Packaging — Упаковка под ключ для вашего бизнеса</title>
+
+  <!-- Подключение шрифтов -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      line-height: 1.6;
+      color: #1f2937;
+      background-color: #ffffff;
+      overflow-x: hidden;
+    }
+
+    .container {
+      width: 90%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1rem;
+    }
+
+    h1, h2, h3, h4 {
+      font-weight: 600;
+      color: #111827;
+      margin-bottom: 1rem;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      line-height: 1.2;
+    }
+
+    h2 {
+      font-size: 2rem;
+      text-align: center;
+      margin-bottom: 2.5rem;
+      position: relative;
+      display: inline-block;
+    }
+
+    h2:after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80px;
+      height: 4px;
+      background: #1d4ed8;
+      border-radius: 2px;
+    }
+
+    p {
+      margin-bottom: 1rem;
+      color: #4b5563;
+      font-size: 1.1rem;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 8px;
+      transition: transform 0.3s ease;
+    }
+
+    .btn {
+      display: inline-block;
+      background: #1d4ed8;
+      color: white;
+      padding: 0.75rem 1.5rem;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: 500;
+      transition: all 0.3s ease;
+      margin-top: 1rem;
+      border: 2px solid transparent;
+    }
+
+    .btn:hover {
+      background: #1e40af;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .btn-outline {
+      background: transparent;
+      border-color: #1d4ed8;
+      color: #1d4ed8;
+    }
+
+    .btn-outline:hover {
+      background: #1d4ed8;
+      color: white;
+    }
+
+    section {
+      padding: 5rem 0;
+    }
+
+    /* Навигация */
+    header {
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 1000;
+      border-bottom: 1px solid #e5e7eb;
+      transition: all 0.3s ease;
+    }
+
+    header.scrolled {
+      padding: 0.5rem 0;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.5rem 0;
+      transition: all 0.3s ease;
+    }
+
+    header.scrolled nav {
+      padding: 0.5rem 0;
+    }
+
+    .logo {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: #1d4ed8;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .logo i {
+      font-size: 1.5rem;
+    }
+
+    .nav-links {
+      display: flex;
+      list-style: none;
+      gap: 2rem;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: #374151;
+      font-weight: 500;
+      transition: color 0.3s;
+      position: relative;
+      padding: 0.5rem 0;
+    }
+
+    .nav-links a:after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: #1d4ed8;
+      transition: width 0.3s ease;
+    }
+
+    .nav-links a:hover:after {
+      width: 100%;
+    }
+
+    .nav-links a:hover {
+      color: #1d4ed8;
+    }
+
+    .mobile-menu-btn {
+      display: none;
+      background: none;
+      border: none;
+      font-size: 1.5rem;
+      color: #1d4ed8;
+      cursor: pointer;
+    }
+
+    /* Герой с фоном */
+    .hero {
+      padding: 12rem 0 6rem;
+      background: url('https://images.unsplash.com/photo-1600498191902-9a6e1c29e886?w=1600&h=900&fit=crop') no-repeat center center fixed;
+      background-size: cover;
+      color: white;
+      text-align: center;
+      position: relative;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.4);
+      z-index: 1;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 800px;
+      margin: 0 auto;
+      animation: fadeInUp 1s ease;
+    }
+
+    .hero h1 {
+      margin-bottom: 1.5rem;
+      font-size: 3rem;
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      max-width: 700px;
+      margin: 0 auto 2rem;
+      text-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    /* Услуги */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+    }
+
+    .service-card {
+      background: white;
+      padding: 2rem;
+      border-radius: 10px;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+      text-align: center;
+    }
+
+    .service-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    .service-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 4px;
+      background: #1d4ed8;
+    }
+
+    .service-icon {
+      font-size: 2.5rem;
+      color: #1d4ed8;
+      margin-bottom: 1rem;
+    }
+
+    /* Технологии с фоном */
+    .tech {
+      background: url('https://images.unsplash.com/photo-1604525534732-f4e918687c77?w=1600&h=900&fit=crop') no-repeat center center fixed;
+      background-size: cover;
+      color: white;
+      position: relative;
+    }
+
+    .tech::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.6);
+      z-index: 1;
+    }
+
+    .tech-content {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 3rem;
+      align-items: center;
+    }
+
+    .tech-text {
+      flex: 1;
+      min-width: 300px;
+      color: #e2e8f0;
+    }
+
+    .tech-text p {
+      color: #e2e8f0;
+      margin-bottom: 1.5rem;
+    }
+
+    .tech h2 {
+      color: white;
+      text-align: left;
+    }
+
+    .tech-list {
+      list-style: none;
+      margin-top: 2rem;
+    }
+
+    .tech-list li {
+      margin-bottom: 1rem;
+      position: relative;
+      padding-left: 2rem;
+    }
+
+    .tech-list li:before {
+      content: '\f00c';
+      font-family: 'Font Awesome 6 Free';
+      font-weight: 900;
+      position: absolute;
+      left: 0;
+      top: 0;
+      color: #1d4ed8;
+    }
+
+    /* Подход с фоном */
+    .approach {
+      background: url('https://images.unsplash.com/photo-1557683316-104b4d87477f?w=1600&h=900&fit=crop') no-repeat center center fixed;
+      background-size: cover;
+      color: #1f2937;
+      position: relative;
+    }
+
+    .approach::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(255, 255, 255, 0.8);
+      z-index: 1;
+    }
+
+    .approach-content {
+      position: relative;
+      z-index: 2;
+    }
+
+    .approach-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+    }
+
+    .approach-item {
+      background: white;
+      padding: 1.5rem;
+      border-radius: 8px;
+      border-left: 4px solid #1d4ed8;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+      transition: all 0.3s ease;
+    }
+
+    .approach-item:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    .approach-number {
+      display: inline-block;
+      width: 30px;
+      height: 30px;
+      background: #1d4ed8;
+      color: white;
+      border-radius: 50%;
+      text-align: center;
+      line-height: 30px;
+      margin-bottom: 1rem;
+      font-weight: bold;
+    }
+
+    /* Миссия и ценности */
+    .values {
+      background: #f1f5f9;
+    }
+
+    .values-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+    }
+
+    .value-card {
+      text-align: center;
+      padding: 2rem;
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+      transition: all 0.3s ease;
+    }
+
+    .value-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    .value-icon {
+      font-size: 2.5rem;
+      color: #1d4ed8;
+      margin-bottom: 1rem;
+    }
+
+    /* Оборудование с фоном */
+    .equipment {
+      background: url('https://images.unsplash.com/photo-1604214737265-5f132d67172b?w=1600&h=900&fit=crop') no-repeat center center fixed;
+      background-size: cover;
+      color: white;
+      position: relative;
+    }
+
+    .equipment::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.6);
+      z-index: 1;
+    }
+
+    .equipment .container {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 3rem;
+      align-items: center;
+    }
+
+    .equipment h2 {
+      color: white;
+      text-align: left;
+    }
+
+    .equipment p {
+      color: #e2e8f0;
+    }
+
+    .equipment .btn {
+      background: white;
+      color: #1e293b;
+    }
+
+    .equipment .btn:hover {
+      background: #f1f5f9;
+    }
+
+    .equipment-image {
+      flex: 1;
+      min-width: 300px;
+      text-align: center;
+    }
+
+    .equipment-image img:hover {
+      transform: scale(1.05);
+    }
+
+    /* Контакты */
+    .contacts {
+      background: white;
+      text-align: center;
+    }
+
+    .contact-info {
+      max-width: 600px;
+      margin: 2rem auto 0;
+    }
+
+    .contact-info p {
+      font-size: 1.1rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .contact-methods {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      justify-content: center;
+      margin-bottom: 2rem;
+    }
+
+    .contact-method {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: #1d4ed8;
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+
+    .contact-method:hover {
+      color: #1e40af;
+      transform: translateY(-2px);
+    }
+
+    .contact-method i {
+      font-size: 1.2rem;
+    }
+
+    .social-links {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      margin-top: 2rem;
+    }
+
+    .social-link {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: #1d4ed8;
+      color: white;
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+
+    .social-link:hover {
+      background: #1e40af;
+      transform: translateY(-3px);
+    }
+
+    /* Форма обратной связи */
+    .contact-form {
+      max-width: 500px;
+      margin: 2rem auto 0;
+      text-align: left;
+    }
+
+    .form-group {
+      margin-bottom: 1.5rem;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 0.5rem;
+      font-weight: 500;
+    }
+
+    .form-group input,
+    .form-group textarea,
+    .form-group select {
+      width: 100%;
+      padding: 0.75rem;
+      border: 1px solid #e5e7eb;
+      border-radius: 6px;
+      font-family: inherit;
+      transition: border-color 0.3s;
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus,
+    .form-group select:focus {
+      outline: none;
+      border-color: #1d4ed8;
+    }
+
+    .form-group textarea {
+      min-height: 120px;
+    }
+
+    /* Футер */
+    footer {
+      background: #0f172a;
+      color: #e2e8f0;
+      padding: 3rem 0;
+      text-align: center;
+    }
+
+    footer p {
+      color: #94a3b8;
+      font-size: 0.9rem;
+    }
+
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      margin-bottom: 1.5rem;
+      flex-wrap: wrap;
+    }
+
+    .footer-links a {
+      color: #e2e8f0;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    .footer-links a:hover {
+      color: #1d4ed8;
+    }
+
+    /* Анимации */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .fade-in {
+      animation: fadeInUp 0.8s ease forwards;
+    }
+
+    .delay-1 {
+      animation-delay: 0.2s;
+    }
+
+    .delay-2 {
+      animation-delay: 0.4s;
+    }
+
+    .delay-3 {
+      animation-delay: 0.6s;
+    }
+
+    /* Галерея клиентов */
+    .clients {
+      background: #f8fafc;
+    }
+
+    .clients-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 2rem;
+      align-items: center;
+    }
+
+    .client-logo {
+      filter: grayscale(100%);
+      opacity: 0.7;
+      transition: all 0.3s ease;
+      padding: 1rem;
+    }
+
+    .client-logo:hover {
+      filter: grayscale(0);
+      opacity: 1;
+      transform: scale(1.1);
+    }
+
+    /* Отзывы */
+    .testimonials {
+      background: #ffffff;
+    }
+
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+    }
+
+    .testimonial-card {
+      background: white;
+      padding: 2rem;
+      border-radius: 10px;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+      position: relative;
+      transition: all 0.3s ease;
+    }
+
+    .testimonial-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    .testimonial-card:before {
+      content: '\201C';
+      font-family: Georgia, serif;
+      font-size: 4rem;
+      color: #e5e7eb;
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      line-height: 1;
+    }
+
+    .testimonial-content {
+      position: relative;
+      z-index: 1;
+      margin-bottom: 1.5rem;
+    }
+
+    .testimonial-author {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .testimonial-author img {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+
+    .author-info h4 {
+      margin-bottom: 0.2rem;
+    }
+
+    .author-info p {
+      font-size: 0.9rem;
+      color: #64748b;
+      margin-bottom: 0;
+    }
+
+    /* FAQ */
+    .faq {
+      background: #f1f5f9;
+    }
+
+    .accordion {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .accordion-item {
+      margin-bottom: 1rem;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      background: white;
+    }
+
+    .accordion-header {
+      padding: 1.5rem;
+      background: white;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-weight: 500;
+      transition: all 0.3s ease;
+    }
+
+    .accordion-header:hover {
+      background: #f8fafc;
+    }
+
+    .accordion-header i {
+      transition: transform 0.3s ease;
+    }
+
+    .accordion-header.active i {
+      transform: rotate(180deg);
+    }
+
+    .accordion-content {
+      padding: 0 1.5rem;
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease, padding 0.3s ease;
+    }
+
+    .accordion-content.active {
+      padding: 0 1.5rem 1.5rem;
+      max-height: 500px;
+    }
+
+    /* Адаптив */
+    @media (max-width: 768px) {
+      h1 {
+        font-size: 2rem;
+      }
+      h2 {
+        font-size: 1.75rem;
+      }
+      .nav-links {
+        position: fixed;
+        top: 80px;
+        left: 0;
+        width: 100%;
+        background: white;
+        flex-direction: column;
+        align-items: center;
+        padding: 2rem 0;
+        gap: 1.5rem;
+        box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        transform: translateY(-150%);
+        transition: transform 0.3s ease;
+        z-index: 999;
+      }
+      .nav-links.active {
+        transform: translateY(0);
+      }
+      .mobile-menu-btn {
+        display: block;
+      }
+      .hero, .tech, .approach, .values, .equipment, .contacts, .clients, .testimonials, .faq {
+        padding: 4rem 0;
+      }
+      .hero h1 {
+        font-size: 2.2rem;
+      }
+      .hero-buttons {
+        flex-direction: column;
+        gap: 0.5rem;
+      }
+      .hero-buttons .btn {
+        width: 100%;
+      }
+      .tech-content, .equipment .container {
+        flex-direction: column;
+      }
+      .tech-text {
+        order: 2;
+      }
+      .equipment-image {
+        order: 2;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Шапка -->
+  <header id="header">
+    <div class="container">
+      <nav>
+        <div class="logo">
+          <i class="fas fa-box-open"></i>
+          DD Packaging
+        </div>
+        <ul class="nav-links">
+          <li><a href="#services">Услуги</a></li>
+          <li><a href="#tech">Технологии</a></li>
+          <li><a href="#approach">Подход</a></li>
+          <li><a href="#values">Ценности</a></li>
+          <li><a href="#equipment">Оборудование</a></li>
+          <li><a href="#contacts">Контакты</a></li>
+        </ul>
+        <button class="mobile-menu-btn">
+          <i class="fas fa-bars"></i>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Герой с реальным фото -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-content">
+        <h1>Упаковка, которая продает ваш продукт</h1>
+        <p>Мы в DD Packaging понимаем, что первое впечатление имеет значение. Наша упаковка не просто защищает ваш товар — она рассказывает историю вашего бренда, привлекает внимание и увеличивает продажи.</p>
+        <div class="hero-buttons">
+          <a href="#contacts" class="btn">Обсудить проект</a>
+          <a href="#services" class="btn btn-outline">Наши решения</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Услуги -->
+  <section id="services">
+    <div class="container">
+      <h2 class="fade-in">Наши решения для вашего бизнеса</h2>
+      <p class="text-center fade-in delay-1">Мы создаем упаковку, которая решает конкретные задачи вашего продукта и выделяет его на полке</p>
+      <div class="services-grid">
+        <div class="service-card fade-in delay-1">
+          <div class="service-icon">
+            <i class="fas fa-coffee"></i>
+          </div>
+          <h3>Чай и кофе</h3>
+          <p>Влагостойкая, ароматозащитная упаковка с возможностью рельефной печати и экологичных материалов. Сохраняем свежесть и подчеркиваем премиальность.</p>
+        </div>
+        <div class="service-card fade-in delay-1">
+          <div class="service-icon">
+            <i class="fas fa-cookie"></i>
+          </div>
+          <h3>Кондитерские изделия</h3>
+          <p>Элегантная упаковка с дополнительной защитой от влаги и механических повреждений. Ваши сладости останутся в идеальном состоянии до момента употребления.</p>
+        </div>
+        <div class="service-card fade-in delay-2">
+          <div class="service-icon">
+            <i class="fas fa-snowflake"></i>
+          </div>
+          <h3>Замороженные продукты</h3>
+          <p>Морозостойкие материалы, герметичная запайка, устойчивость к перепадам температур. Защищаем продукт на всех этапах хранения и транспортировки.</p>
+        </div>
+        <div class="service-card fade-in delay-2">
+          <div class="service-icon">
+            <i class="fas fa-wine-glass-alt"></i>
+          </div>
+          <h3>Алкоголь</h3>
+          <p>Премиум-упаковка с возможностью фольгирования, тиснения и UV-печати. Подчеркнем статус вашего напитка и защитим от подделок.</p>
+        </div>
+        <div class="service-card fade-in delay-3">
+          <div class="service-icon">
+            <i class="fas fa-spa"></i>
+          </div>
+          <h3>Косметика и гигиена</h3>
+          <p>Гигиеничные, безопасные материалы, возможность стерильной упаковки. Сочетаем эстетику и функциональность для ваших покупателей.</p>
+        </div>
+        <div class="service-card fade-in delay-3">
+          <div class="service-icon">
+            <i class="fas fa-pills"></i>
+          </div>
+          <h3>Фармацевтика</h3>
+          <p>Соответствие стандартам GMP, защита от света, влаги и подделок. Надежность, которая важна для здоровья ваших клиентов.</p>
+        </div>
+        <div class="service-card fade-in delay-1">
+          <div class="service-icon">
+            <i class="fas fa-gift"></i>
+          </div>
+          <h3>Промоупаковка</h3>
+          <p>Ограниченные серии, креативные формы, нестандартные решения для маркетинга. Поможем выделиться в период акций и праздников.</p>
+        </div>
+        <div class="service-card fade-in delay-2">
+          <div class="service-icon">
+            <i class="fas fa-lightbulb"></i>
+          </div>
+          <h3>Индивидуальные решения</h3>
+          <p>Нет шаблонов — только уникальные идеи под ваш продукт. От пробной партии до массового тиража с гарантией качества.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Галерея клиентов -->
+  <section class="clients">
+    <div class="container">
+      <h2 class="fade-in">Нам доверяют</h2>
+      <p class="text-center fade-in delay-1">Более 200 компаний уже выбрали нашу упаковку для своих продуктов</p>
+      <div class="clients-grid">
+        <img src="https://via.placeholder.com/150x80?text=Лого1" alt="Клиент 1" class="client-logo fade-in delay-1">
+        <img src="https://via.placeholder.com/150x80?text=Лого2" alt="Клиент 2" class="client-logo fade-in delay-2">
+        <img src="https://via.placeholder.com/150x80?text=Лого3" alt="Клиент 3" class="client-logo fade-in delay-3">
+        <img src="https://via.placeholder.com/150x80?text=Лого4" alt="Клиент 4" class="client-logo fade-in delay-1">
+        <img src="https://via.placeholder.com/150x80?text=Лого5" alt="Клиент 5" class="client-logo fade-in delay-2">
+      </div>
+    </div>
+  </section>
+
+  <!-- Технологии с реальным фото -->
+  <section id="tech" class="tech">
+    <div class="container">
+      <h2 class="fade-in">Современные технологии производства</h2>
+      <div class="tech-content">
+        <div class="tech-text fade-in delay-1">
+          <p>Мы инвестируем в передовое оборудование и обучение персонала, чтобы предлагать вам лучшие решения на рынке упаковки.</p>
+          <p>Наш технолог Алексей с 15-летним опытом лично контролирует каждый этап производства:</p>
+          <ul class="tech-list">
+            <li>Цифровая печать с разрешением до 1200 dpi</li>
+            <li>Автоматизированные линии контроля качества</li>
+            <li>Экологичные материалы с сертификатами FSC</li>
+            <li>Возможность нанесения защитных элементов</li>
+            <li>3D-моделирование упаковки перед производством</li>
+          </ul>
+          <a href="#contacts" class="btn">Узнать подробности</a>
+        </div>
+        <div class="fade-in delay-2">
+          <img src="ac51eb736df511f0b8400efd8c378a3b_1.jpg" alt="Производственные линии" class="hover-zoom" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Подход с реальным фото -->
+  <section id="approach" class="approach">
+    <div class="container">
+      <h2 class="fade-in">Наш подход к работе</h2>
+      <p class="text-center fade-in delay-1">Мы не просто производим упаковку — мы становимся партнерами для вашего бизнеса</p>
+      <div class="approach-content">
+        <div class="approach-grid">
+          <div class="approach-item fade-in delay-1">
+            <div class="approach-number">1</div>
+            <h3>Анализ и консультация</h3>
+            <p>Наш менеджер Анна проведет бесплатный аудит ваших текущих упаковочных решений и предложит варианты улучшения.</p>
+          </div>
+          <div class="approach-item fade-in delay-2">
+            <div class="approach-number">2</div>
+            <h3>Дизайн и прототипирование</h3>
+            <p>Дизайнер Михаил создаст 3D-визуализацию и отправит вам на согласование в течение 3 рабочих дней.</p>
+          </div>
+          <div class="approach-item fade-in delay-1">
+            <div class="approach-number">3</div>
+            <h3>Тестовый образец</h3>
+            <p>Изготовим пробный экземпляр, чтобы вы могли оценить качество материалов и печати "вживую".</p>
+          </div>
+          <div class="approach-item fade-in delay-2">
+            <div class="approach-number">4</div>
+            <h3>Производство и доставка</h3>
+            <p>Соберем заказ и доставим в любую точку России. Средний срок выполнения — 14 рабочих дней.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Отзывы -->
+  <section class="testimonials">
+    <div class="container">
+      <h2 class="fade-in">Что говорят наши клиенты</h2>
+      <p class="text-center fade-in delay-1">Реальные отзывы от компаний, которые уже работают с нами</p>
+      <div class="testimonials-grid">
+        <div class="testimonial-card fade-in delay-1">
+          <div class="testimonial-content">
+            <p>"Упаковка от DD Packaging помогла нам увеличить продажи на 23% в первый же месяц. Клиенты отмечают, что продукт теперь выглядит более премиально."</p>
+          </div>
+          <div class="testimonial-author">
+            <img src="https://randomuser.me/api/portraits/women/45.jpg" alt="Екатерина Смирнова">
+            <div class="author-info">
+              <h4>Екатерина Смирнова</h4>
+              <p>COO, "Чайные традиции"</p>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card fade-in delay-2">
+          <div class="testimonial-content">
+            <p>"Работаем с DD Packaging уже 3 года. Ни разу не было срывов сроков или проблем с качеством. Всегда идут навстречу, если нужны срочные изменения в дизайне."</p>
+          </div>
+          <div class="testimonial-author">
+            <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Дмитрий Иванов">
+            <div class="author-info">
+              <h4>Дмитрий Иванов</h4>
+              <p>Директор, "Кофейная мануфактура"</p>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card fade-in delay-3">
+          <div class="testimonial-content">
+            <p>"Предложили нестандартное решение для нашей линейки органической косметики. Упаковка полностью биоразлагаемая, но выглядит дорого и стильно. Очень довольны!"</p>
+          </div>
+          <div class="testimonial-author">
+            <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Анна Петрова">
+            <div class="author-info">
+              <h4>Анна Петрова</h4>
+              <p>Основатель, "Organic Beauty"</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Миссия и ценности -->
+  <section id="values" class="values">
+    <div class="container">
+      <h2 class="fade-in">Наши принципы работы</h2>
+      <p class="text-center fade-in delay-1">Мы строим долгосрочные отношения с клиентами на основе доверия и качества</p>
+      <div class="values-grid">
+        <div class="value-card fade-in delay-1">
+          <div class="value-icon">
+            <i class="fas fa-bullseye"></i>
+          </div>
+          <h3>Миссия</h3>
+          <p>Создавать упаковку, которая защищает продукт, привлекает клиента и помогает брендам расти. Мы верим, что хорошая упаковка — это лицо продукта.</p>
+        </div>
+        <div class="value-card fade-in delay-2">
+          <div class="value-icon">
+            <i class="fas fa-award"></i>
+          </div>
+          <h3>Качество</h3>
+          <p>Контроль на каждом этапе — от материала до упаковки. Мы не идём на компромиссы. Если что-то не идеально — переделываем за свой счет.</p>
+        </div>
+        <div class="value-card fade-in delay-1">
+          <div class="value-icon">
+            <i class="fas fa-lightbulb"></i>
+          </div>
+          <h3>Инновации</h3>
+          <p>Постоянное развитие технологий. Каждый год мы инвестируем 15% прибыли в новое оборудование и обучение сотрудников.</p>
+        </div>
+        <div class="value-card fade-in delay-2">
+          <div class="value-icon">
+            <i class="fas fa-leaf"></i>
+          </div>
+          <h3>Экологичность</h3>
+          <p>70% наших материалов — перерабатываемые или биоразлагаемые. Помогаем клиентам снижать экослед без ущерба для презентабельности.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="faq">
+    <div class="container">
+      <h2 class="fade-in">Частые вопросы</h2>
+      <p class="text-center fade-in delay-1">Ответы на самые популярные вопросы о нашей работе</p>
+      <div class="accordion">
+        <div class="accordion-item fade-in delay-1">
+          <div class="accordion-header">
+            <span>Какой минимальный тираж вы производите?</span>
+            <i class="fas fa-chevron-down"></i>
+          </div>
+          <div class="accordion-content">
+            <p>Мы работаем с любыми объемами — от 50 штук для стартапов до массовых тиражей в сотни тысяч единиц. Для пробных партий у нас есть специальные условия.</p>
+          </div>
+        </div>
+        <div class="accordion-item fade-in delay-2">
+          <div class="accordion-header">
+            <span>Можно ли использовать наш дизайн?</span>
+            <i class="fas fa-chevron-down"></i>
+          </div>
+          <div class="accordion-content">
+            <p>Конечно! Наши дизайнеры адаптируют ваши макеты под требования производства. Если у вас нет готового дизайна — мы разработаем его с нуля бесплатно при заказе от 1000 единиц.</p>
+          </div>
+        </div>
+        <div class="accordion-item fade-in delay-3">
+          <div class="accordion-header">
+            <span>Какие сроки производства?</span>
+            <i class="fas fa-chevron-down"></i>
+          </div>
+          <div class="accordion-content">
+            <p>Стандартные сроки — 10-14 рабочих дней после утверждения макета. Для срочных заказов (от 3 дней) доступна услуга экспресс-производства с небольшой доплатой.</p>
+          </div>
+        </div>
+        <div class="accordion-item fade-in delay-1">
+          <div class="accordion-header">
+            <span>Есть ли у вас складские программы?</span>
+            <i class="fas fa-chevron-down"></i>
+          </div>
+          <div class="accordion-content">
+            <p>Да, мы предоставляем бесплатное хранение на нашем складе до 3 месяцев для постоянных клиентов. Это позволяет вам экономить на логистике и оперативно пополнять запасы.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Оборудование с реальным фото -->
+  <section id="equipment" class="equipment">
+    <div class="container">
+      <h2 class="fade-in">Продажа оборудования</h2>
+      <div class="fade-in delay-1">
+        <p>Помимо производства упаковки, мы предлагаем современное оборудование для упаковочных линий. Наш инженер Сергей подберет оптимальную конфигурацию под ваш бюджет и объемы.</p>
+        <p>Что мы предлагаем:</p>
+        <ul class="tech-list">
+          <li>Автоматические фасовочные машины</li>
+          <li>Термоусадочные тоннели</li>
+          <li>Этикетировочные комплексы</li>
+          <li>Линии групповой упаковки</li>
+          <li>Сервисное обслуживание</li>
+        </ul>
+        <a href="mailto:sales@ddpackaging.ru" class="btn">Получить коммерческое предложение</a>
+      </div>
+      <div class="equipment-image fade-in delay-2">
+        <img src="2.jpg" alt="Упаковочное оборудование" class="hover-zoom" />
+      </div>
+    </div>
+  </section>
+
+  <!-- Контакты -->
+  <section id="contacts" class="contacts">
+    <div class="container">
+      <h2 class="fade-in">Давайте обсудим ваш проект</h2>
+      <p class="text-center fade-in delay-1">Мы готовы ответить на все вопросы и предложить лучшее решение для вашего продукта</p>
+      <div class="contact-methods fade-in delay-1">
+        <a href="tel:+74951234567" class="contact-method">
+          <i class="fas fa-phone-alt"></i>
+          +7 (495) 123-45-67
+        </a>
+        <a href="mailto:info@ddpackaging.ru" class="contact-method">
+          <i class="fas fa-envelope"></i>
+          info@ddpackaging.ru
+        </a>
+        <a href="https://yandex.ru/maps/" target="_blank" class="contact-method">
+          <i class="fas fa-map-marker-alt"></i>
+          Москва, ул. Промышленная, д. 15, стр. 3
+        </a>
+      </div>
+      <div class="contact-form fade-in delay-2">
+        <form id="feedback-form">
+          <div class="form-group">
+            <label for="name">Ваше имя</label>
+            <input type="text" id="name" name="name" required>
+          </div>
+          <div class="form-group">
+            <label for="company">Компания</label>
+            <input type="text" id="company" name="company">
+          </div>
+          <div class="form-group">
+            <label for="phone">Телефон</label>
+            <input type="tel" id="phone" name="phone" required>
+          </div>
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required>
+          </div>
+          <div class="form-group">
+            <label for="message">Расскажите о вашем проекте</label>
+            <textarea id="message" name="message" required></textarea>
+          </div>
+          <button type="submit" class="btn">Отправить запрос</button>
+        </form>
+      </div>
+      <div class="social-links fade-in delay-3">
+        <a href="#" class="social-link"><i class="fab fa-telegram"></i></a>
+        <a href="#" class="social-link"><i class="fab fa-whatsapp"></i></a>
+        <a href="#" class="social-link"><i class="fab fa-vk"></i></a>
+        <a href="#" class="social-link"><i class="fab fa-youtube"></i></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Футер -->
+  <footer>
+    <div class="container">
+      <div class="footer-links fade-in">
+        <a href="#services">Услуги</a>
+        <a href="#tech">Технологии</a>
+        <a href="#approach">Подход</a>
+        <a href="#values">Ценности</a>
+        <a href="#equipment">Оборудование</a>
+        <a href="#contacts">Контакты</a>
+        <a href="#">Политика конфиденциальности</a>
+      </div>
+      <p class="fade-in delay-1">&copy; 2025 DD Packaging. Все права защищены. Профессиональная упаковка под ключ.</p>
+      <p class="fade-in delay-2">ИП Смирнов Д.Д. ИНН 123456789012 ОГРНИП 123456789012345</p>
+    </div>
+  </footer>
+
+  <script>
+    // Плавная прокрутка по якорям
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          window.scrollTo({
+            top: target.offsetTop - 80,
+            behavior: 'smooth'
+          });
+          
+          // Закрываем мобильное меню после клика
+          document.querySelector('.nav-links').classList.remove('active');
+        }
+      });
+    });
+
+    // Мобильное меню
+    const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+    const navLinks = document.querySelector('.nav-links');
+    
+    mobileMenuBtn.addEventListener('click', () => {
+      navLinks.classList.toggle('active');
+      mobileMenuBtn.innerHTML = navLinks.classList.contains('active') ? 
+        '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
+    });
+
+    // Фиксация шапки при скролле
+    window.addEventListener('scroll', () => {
+      const header = document.getElementById('header');
+      if (window.scrollY > 50) {
+        header.classList.add('scrolled');
+      } else {
+        header.classList.remove('scrolled');
+      }
+    });
+
+    // Анимация при скролле
+    const animateOnScroll = () => {
+      const elements = document.querySelectorAll('.fade-in');
+      elements.forEach(element => {
+        const elementPosition = element.getBoundingClientRect().top;
+        const screenPosition = window.innerHeight / 1.3;
+        
+        if (elementPosition < screenPosition) {
+          element.style.opacity = '1';
+          element.style.transform = 'translateY(0)';
+        }
+      });
+    };
+
+    // Инициализация анимации
+    window.addEventListener('load', () => {
+      const animatedElements = document.querySelectorAll('.fade-in');
+      animatedElements.forEach(el => {
+        el.style.opacity = '0';
+        el.style.transform = 'translateY(20px)';
+        el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+      });
+      
+      animateOnScroll();
+    });
+
+    window.addEventListener('scroll', animateOnScroll);
+
+    // Аккордеон FAQ
+    const accordionHeaders = document.querySelectorAll('.accordion-header');
+    accordionHeaders.forEach(header => {
+      header.addEventListener('click', () => {
+        const item = header.parentElement;
+        const content = header.nextElementSibling;
+        
+        // Закрываем все открытые элементы
+        document.querySelectorAll('.accordion-item').forEach(accordionItem => {
+          if (accordionItem !== item) {
+            accordionItem.querySelector('.accordion-header').classList.remove('active');
+            accordionItem.querySelector('.accordion-content').classList.remove('active');
+          }
+        });
+        
+        // Открываем/закрываем текущий
+        header.classList.toggle('active');
+        content.classList.toggle('active');
+      });
+    });
+
+    // Обработка формы
+    const feedbackForm = document.getElementById('feedback-form');
+    if (feedbackForm) {
+      feedbackForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        // Здесь должна быть логика отправки формы
+        const formData = new FormData(this);
+        
+        // В реальном проекте здесь был бы fetch или XMLHttpRequest
+        console.log('Форма отправлена:', Object.fromEntries(formData));
+        
+        // Показываем сообщение об успехе
+        alert('Спасибо! Ваша заявка отправлена. Мы свяжемся с вами в ближайшее время.');
+        this.reset();
+      });
+    }
+  </script>
+</body>
+</html>
