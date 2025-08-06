@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="ru">
 <head>
   <meta charset="UTF-8" />
@@ -6,9 +6,51 @@
   <meta name="description" content="DD Packaging — профессиональная упаковка для чая, кофе, косметики, алкоголя и других продуктов. Современные технологии, индивидуальный подход, высокое качество." />
   <title>DD Packaging — Упаковка под ключ для вашего бизнеса</title>
 
-  <!-- Подключение шрифтов -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <!-- Локальные шрифты -->
+  <style>
+    /* Inter Regular */
+    @font-face {
+      font-family: 'Inter';
+      font-style: normal;
+      font-weight: 400;
+      src: local('Inter Regular'), local('Inter-Regular'),
+           url('fonts/inter-v12-cyrillic-regular.woff2') format('woff2'),
+           url('fonts/inter-v12-cyrillic-regular.woff') format('woff');
+    }
+    
+    /* Inter Medium */
+    @font-face {
+      font-family: 'Inter';
+      font-style: normal;
+      font-weight: 500;
+      src: local('Inter Medium'), local('Inter-Medium'),
+           url('fonts/inter-v12-cyrillic-500.woff2') format('woff2'),
+           url('fonts/inter-v12-cyrillic-500.woff') format('woff');
+    }
+    
+    /* Inter SemiBold */
+    @font-face {
+      font-family: 'Inter';
+      font-style: normal;
+      font-weight: 600;
+      src: local('Inter SemiBold'), local('Inter-SemiBold'),
+           url('fonts/inter-v12-cyrillic-600.woff2') format('woff2'),
+           url('fonts/inter-v12-cyrillic-600.woff') format('woff');
+    }
+    
+    /* Inter Bold */
+    @font-face {
+      font-family: 'Inter';
+      font-style: normal;
+      font-weight: 700;
+      src: local('Inter Bold'), local('Inter-Bold'),
+           url('fonts/inter-v12-cyrillic-700.woff2') format('woff2'),
+           url('fonts/inter-v12-cyrillic-700.woff') format('woff');
+    }
+  </style>
+  
+  <!-- Локальная версия Font Awesome -->
+  <link rel="stylesheet" href="css/fontawesome.min.css" />
 
   <style>
     * {
@@ -18,7 +60,7 @@
     }
 
     body {
-      font-family: 'Inter', sans-serif;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
       line-height: 1.6;
       color: #1f2937;
       background-color: #ffffff;
@@ -199,8 +241,7 @@
     /* Герой с фоном */
     .hero {
       padding: 12rem 0 6rem;
-      background: url('') no-repeat center center fixed;
-      background-size: cover;
+      background: #1d4ed8;
       color: white;
       text-align: center;
       position: relative;
@@ -223,16 +264,17 @@
       max-width: 800px;
       margin: 0 auto;
       animation: fadeInUp 1s ease;
+      padding: 0 1rem;
     }
 
     .hero h1 {
       margin-bottom: 1.5rem;
-      font-size: 3rem;
+      font-size: clamp(2rem, 5vw, 3rem);
       text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
     }
 
     .hero p {
-      font-size: 1.2rem;
+      font-size: clamp(1rem, 2vw, 1.2rem);
       max-width: 700px;
       margin: 0 auto 2rem;
       text-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
@@ -286,8 +328,7 @@
 
     /* Технологии с фоном */
     .tech {
-      background: url('6.jpeg') no-repeat center center fixed;
-      background-size: cover;
+      background: #1d4ed8;
       color: white;
       position: relative;
     }
@@ -351,21 +392,9 @@
 
     /* Подход с фоном */
     .approach {
-      background: url('') no-repeat center center fixed;
-      background-size: cover;
+      background: #f8fafc;
       color: #1f2937;
       position: relative;
-    }
-
-    .approach::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background: rgba(255, 255, 255, 0.8);
-      z-index: 1;
     }
 
     .approach-content {
@@ -439,8 +468,7 @@
 
     /* Оборудование с фоном */
     .equipment {
-      background: url('https://images.unsplash.com/photo-1604214737265-5f132d67172b?w=1600&h=900&fit=crop') no-repeat center center fixed;
-      background-size: cover;
+      background: #1d4ed8;
       color: white;
       position: relative;
     }
@@ -830,11 +858,12 @@
       .mobile-menu-btn {
         display: block;
       }
-      .hero, .tech, .approach, .values, .equipment, .contacts, .clients, .testimonials, .faq {
-        padding: 4rem 0;
+      .hero {
+        padding: 8rem 0 4rem;
       }
       .hero h1 {
         font-size: 2.2rem;
+        margin-top: 1rem;
       }
       .hero-buttons {
         flex-direction: column;
@@ -842,6 +871,9 @@
       }
       .hero-buttons .btn {
         width: 100%;
+      }
+      .tech, .approach, .values, .equipment, .contacts, .clients, .testimonials, .faq {
+        padding: 4rem 0;
       }
       .tech-content, .equipment .container {
         flex-direction: column;
@@ -851,6 +883,22 @@
       }
       .equipment-image {
         order: 2;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .hero {
+        padding: 7rem 0 3rem;
+      }
+      .hero h1 {
+        font-size: 1.8rem;
+      }
+      .hero p {
+        font-size: 1rem;
+      }
+      .contact-methods {
+        flex-direction: column;
+        align-items: center;
       }
     }
   </style>
@@ -878,7 +926,7 @@
     </div>
   </header>
 
-  <!-- Герой с реальным фото -->
+  <!-- Герой с фоном -->
   <section class="hero">
     <div class="container">
       <div class="hero-content">
@@ -951,8 +999,7 @@
     </div>
   </section>
 
-
-  <!-- Технологии с реальным фото -->
+  <!-- Технологии с фоном -->
   <section id="tech" class="tech">
     <div class="container">
       <h2 class="fade-in">Современные технологии производства</h2>
@@ -961,9 +1008,9 @@
           <p>Мы инвестируем в передовое оборудование и обучение персонала, чтобы предлагать вам лучшие решения на рынке упаковки.</p>
           <p>Наш технолог Дмитрий с 15-летним опытом лично контролирует каждый этап производства:</p>
           <ul class="tech-list">
-            <li>Офсетная печать на профессиональном оборудовании Heidelberg </li>
-            <li>Постпечатная обработка на оборудовании Masterworks и Bobst </li>
-            <li>Широкоформатные лазерные плоттеры iEcho для макетирования сложных конструкций </li>
+            <li>Офсетная печать на профессиональном оборудовании Heidelberg</li>
+            <li>Постпечатная обработка на оборудовании Masterworks и Bobst</li>
+            <li>Широкоформатные лазерные плоттеры iEcho для макетирования сложных конструкций</li>
             <li>Автоматизированные линии контроля качества</li>
             <li>Возможность нанесения защитных элементов</li>
           </ul>
@@ -972,12 +1019,11 @@
         <div class="fade-in delay-2">
           <img src="4.jpeg" alt="Производственные линии" class="hover-zoom" />
         </div>
-
       </div>
     </div>
   </section>
 
-  <!-- Подход с реальным фото -->
+  <!-- Подход с фоном -->
   <section id="approach" class="approach">
     <div class="container">
       <h2 class="fade-in">Наш подход к работе</h2>
@@ -1073,7 +1119,7 @@
             <i class="fas fa-award"></i>
           </div>
           <h3>Качество</h3>
-          <p>Контроль на каждом этапе — от материала до упаковки. Мы не идём на компромиссы. На каждом участке - от печати до упаковки - онлайн система контроля качества выпускаемой продукции </p>
+          <p>Контроль на каждом этапе — от материала до упаковки. Мы не идём на компромиссы. На каждом участке - от печати до упаковки - онлайн система контроля качества выпускаемой продукции</p>
         </div>
         <div class="value-card fade-in delay-1">
           <div class="value-icon">
@@ -1142,10 +1188,10 @@
   <!-- Контакты -->
   <section id="contacts" class="contacts">
     <div class="container">
-      <h2 class="fade-in">Запросить расчёт вашего проекта </h2>
+      <h2 class="fade-in">Запросить расчёт вашего проекта</h2>
       <p class="text-center fade-in delay-1">Мы готовы ответить на все вопросы и предложить лучшее решение для вашего продукта</p>
       <div class="contact-methods fade-in delay-1">
-        <a href="tel:+74951234567" class="contact-method">
+        <a href="tel:+79067805045" class="contact-method">
           <i class="fas fa-phone-alt"></i>
           +7 (906) 780-50-45
         </a>
@@ -1200,7 +1246,6 @@
         <a href="#tech">Технологии</a>
         <a href="#approach">Подход</a>
         <a href="#values">Ценности</a>
-        <a href="#equipment">Оборудование</a>
         <a href="#contacts">Контакты</a>
         <a href="#">Политика конфиденциальности</a>
       </div>
@@ -1313,18 +1358,24 @@
         this.reset();
       });
     }
+
+    // Улучшение UX для мобильных устройств
+    document.addEventListener('DOMContentLoaded', function() {
+      // Добавляем отступ для фиксированного хедера
+      const headerHeight = document.getElementById('header').offsetHeight;
+      document.documentElement.style.setProperty('--header-height', `${headerHeight}px`);
+      
+      // Улучшаем работу форм на мобильных устройствах
+      const inputs = document.querySelectorAll('input, textarea');
+      inputs.forEach(input => {
+        input.addEventListener('focus', function() {
+          // Прокручиваем к полю ввода на мобильных устройствах
+          if (window.innerWidth < 768) {
+            this.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          }
+        });
+      });
+    });
   </script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
